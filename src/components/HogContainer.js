@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import hogs from '../porkers_data';
+import HogDetail from "./HogDetails";
 import HogsMenu from "./HogsMenu";
 
 class HogContainer extends Component {
@@ -12,12 +13,23 @@ class HogContainer extends Component {
     }
   }
 
+  chooseHogHandler = (clickedHog) => {
+    this.setState({
+      chosenHog: clickedHog
+    })
+  }
+
   render() {
     return (
       <div>
-        <h1>Hogs Container</h1>
-        <HogsMenu hogs={hogs} />
-        
+        { 
+         this.state.chosenHog ? 
+            <HogDetail chosenHog={this.state.chosenHog} /> 
+             :
+            <HogsMenu hogs={hogs} 
+                      chooseHog={this.chooseHogHandler}
+            />
+        }
       </div>
     );
   }

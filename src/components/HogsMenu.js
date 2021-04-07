@@ -5,7 +5,9 @@ import HogTile from './HogTile';
 const HogsMenu = (props) => {
 
   const displayHogs = props.hogs.map (hog => 
-                        <HogTile hog={hog} key={hog.name} /> 
+                        <HogTile hog={hog} key={hog.name}
+                                 chooseHog={props.chooseHog}
+                        /> 
   );
   
   return (
