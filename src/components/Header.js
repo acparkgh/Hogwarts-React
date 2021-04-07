@@ -10,7 +10,7 @@ const Header = () => {
       </div>
       <span className="normalText">A React App for County Fair Hog Fans</span>
     </div>
-  );
+  )
 };
 
 export default Header;
