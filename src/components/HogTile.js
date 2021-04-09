@@ -1,6 +1,4 @@
 import React from 'react';
-import HogDetail from './HogDetails';
-
 
 // const HogTile = (props) => {
 const HogTile = ({ hog, chooseHog, chosenHog }) => {

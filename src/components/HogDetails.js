@@ -10,6 +10,7 @@ const HogDetail = (props) => {
         <li>{greased ? "Greased" : "Not Greased"}</li>
         <li>{hogWeight}</li>
         <li>{medal}</li>
+        <button onClick={props.closeHogDetail} >Back To Main</button>
       </ul>
     </div>
   )
