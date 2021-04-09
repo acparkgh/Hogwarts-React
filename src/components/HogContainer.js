@@ -8,7 +8,7 @@ class HogContainer extends Component {
   constructor() {
     super()
     this.state = {
-      greaseFilter: 'all',
+      greasedFilter: 'all',
       sortType: 'none',
       chosenHog: null,
     }
@@ -27,10 +27,17 @@ class HogContainer extends Component {
     })
   }
 
+  updateGreasedFilterHandler = (event) => {
+    // debugger
+    this.setState({
+      greasedFilter: event.target.value
+    })
+  }
+
   render() {
     return (
       <div>
-        <FilterSort />
+        <FilterSort updateGreasedFilter={this.updateGreasedFilterHandler} />
         { 
          this.state.chosenHog ? 
             <HogDetail chosenHog={this.state.chosenHog} 
@@ -39,6 +46,7 @@ class HogContainer extends Component {
              :
             <HogsMenu hogs={hogs} 
                       chooseHog={this.chooseHogHandler}
+                      greasedHog={this.state.greasedFilter}
             />
         }
       </div>
