@@ -34,10 +34,19 @@ class HogContainer extends Component {
     })
   }
 
+  updateSortHandler = (event) => {
+    // debugger
+    this.setState({
+      sortType: event.target.value
+    })
+  }
+
   render() {
     return (
       <div>
-        <FilterSort updateGreasedFilter={this.updateGreasedFilterHandler} />
+        <FilterSort updateGreasedFilter={this.updateGreasedFilterHandler}
+                    updateSort={this.updateSortHandler} 
+        />
         { 
          this.state.chosenHog ? 
             <HogDetail chosenHog={this.state.chosenHog} 
@@ -47,6 +56,7 @@ class HogContainer extends Component {
             <HogsMenu hogs={hogs} 
                       chooseHog={this.chooseHogHandler}
                       greasedHog={this.state.greasedFilter}
+                      sortHog={this.state.sortType}
             />
         }
       </div>

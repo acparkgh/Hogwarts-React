@@ -6,19 +6,18 @@ const HogsMenu = (props) => {
 
   let filteredHogs = []; 
     switch (props.greasedHog) {
-    case "all":
-      filteredHogs = [ ...props.hogs ];
-      break;
-    case "greased":
-      filteredHogs = [ ...props.hogs.filter( hog => hog.greased ) ];
-      break;
-    case "ungreased":
-      filteredHogs = [ ...props.hogs.filter( hog => !hog.greased ) ];
-      break;    
-  }
+      case "greased":
+        filteredHogs = [ ...props.hogs.filter( hog => hog.greased ) ];
+        break;
+      case "ungreased":
+        filteredHogs = [ ...props.hogs.filter( hog => !hog.greased ) ];
+        break;    
+      default:
+        filteredHogs = [ ...props.hogs ];        
+        break;
+      }
   // console.log(filteredHogs)
   
-  // const displayHogs = props.hogs.map (hog => 
   const displayHogs = filteredHogs.map (hog => 
                         <HogTile hog={hog} key={hog.name}
                                  chooseHog={props.chooseHog}
@@ -27,8 +26,6 @@ const HogsMenu = (props) => {
     
   return (
     <div className='ui grid container'>
-      {/* { hogs.map( hog => <HogTile hog={hog} key={hog.name} /> ) } */}
-      {/* {displayHogs} */}
       {displayHogs}
     </div>
   )

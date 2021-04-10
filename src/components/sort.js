@@ -1,10 +1,14 @@
 import React from 'react';
 
-const Sort = (props) => {
-
+const Sort = ({ updateSort: updateSortFunction }) => {
+  
   return (
     <div>
-      Sort
+      <select onChange={ (event) => updateSortFunction(event) } >
+        <option value="none">None</option>
+        <option value="name">Name</option>
+        <option value="weight">Weight</option>
+      </select>
     </div>
   )
 

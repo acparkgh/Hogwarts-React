@@ -9,7 +9,7 @@ const FilterSort = (props) => {
     <div>
       <h3>FilterSortComponent</h3>
       <Filter updateGreasedFilter={props.updateGreasedFilter} />
-      <Sort />
+      <Sort updateSort={props.updateSort} />
     </div>
   )
 
