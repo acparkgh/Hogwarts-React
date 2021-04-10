@@ -1,8 +1,9 @@
 import React from 'react';
 
 // const HogTile = (props) => {
-const HogTile = ({ hog, chooseHog, chosenHog }) => {
-  const { name, specialty, greased, weight } = hog;
+const HogTile = ({ hog, chooseHog }) => {
+
+  const { name } = hog;
   const pigName = name.split(' ').join('_').toLowerCase();
   // console.log(pigName)
   const pigImage = require(`../hog-imgs/${pigName}.jpg`);

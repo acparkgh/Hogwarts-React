@@ -1,5 +1,4 @@
 import React from 'react';
-import hogs from '../porkers_data';
 import HogTile from './HogTile';
 
 const HogsMenu = (props) => {
@@ -16,14 +15,38 @@ const HogsMenu = (props) => {
         filteredHogs = [ ...props.hogs ];        
         break;
       }
-  // console.log(filteredHogs)
-  
-  const displayHogs = filteredHogs.map (hog => 
+ 
+  // let sortedHogs = [];
+  //   switch (props.sortHog) {
+  //     case "weight":
+  //       sortedHogs = [ ...filteredHogs.sort( (a, b) => a.weight - b.weight ) ];
+  //       break;
+  //     case "name":
+  //       sortedHogs = [ ...filteredHogs.sort( (a, b) => a.name < b.name ? -1 : 1 ) ];  
+  //       break;
+  //     default:
+  //       sortedHogs = [ ...filteredHogs ];
+  //       break; 
+  // }
+  const sortedHogs = () => {
+    switch (props.sortHog) {
+      case "weight":
+        return [ ...filteredHogs.sort( (a, b) => a.weight - b.weight ) ];
+      case "name":
+        return [ ...filteredHogs.sort( (a, b) => a.name < b.name ? -1 : 1 ) ];  
+      default:
+        return [ ...filteredHogs ];
+         
+    }
+  }  
+  // console.log(sortedHogs())      
+  // const displayHogs = sortedHogs.map (hog => 
+  const displayHogs = sortedHogs().map (hog => 
                         <HogTile hog={hog} key={hog.name}
                                  chooseHog={props.chooseHog}
                         /> 
   );
-    
+
   return (
     <div className='ui grid container'>
       {displayHogs}
